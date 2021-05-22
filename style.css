@@ -16,4 +16,13 @@ body{
     display: flex;
     max-width: 100%;
     padding: 20px;
+    width: 800px;
+    margin: 0 auto;
+}
+
+
+aside{
+    padding: 10px 20px;
+    width: 250px;
+     border-right: 3px solid #111;
 }
