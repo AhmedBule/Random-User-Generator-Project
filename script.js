@@ -10,7 +10,7 @@ const caculateWealthBtn = document.getElementById('calculate-wealth');
 
 let data = [];
 
-// fetch random user and add money. 
+//fetch random user and add money. 
 
 async function getRandomUser() {
     const res = await fetch('https://randomuser.me/api');
@@ -21,10 +21,24 @@ async function getRandomUser() {
 
     // The newUser is an object. Don't forget the equal sign. 
     const newUser = {
-
+        // We need to use template literals here because we can put variables in. 
+        name: `${user.name.first} ${user.name.last}`,
+        money: Math.floor(Math.random() * 1000000)
     }
+    console.log(newUser)
+    addData(newUser)
 }
 
+// Add new object to data array. 
+
+function addData(obj) {
+    // The push method pushes something to the end of the array. 
+    data.push(obj)
+}
+
+
 getRandomUser();
 getRandomUser();
 getRandomUser();
+
+
