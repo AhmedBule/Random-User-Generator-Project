@@ -34,11 +34,16 @@ async function getRandomUser() {
 function addData(obj) {
     // The push method pushes something to the end of the array. 
     data.push(obj)
+
+    updateDOM();
+    // If nothing is passed in, then we will just padd the data 
 }
 
+// update DOM
+// It will have a parameter called provideData 
+function updateDOM(providedData = data) {
 
-getRandomUser();
-getRandomUser();
-getRandomUser();
+
+}
 
 
