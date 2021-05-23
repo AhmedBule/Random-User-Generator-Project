@@ -12,6 +12,9 @@ let data = [];
 
 //fetch random user and add money. 
 
+getRandomUser();
+
+
 async function getRandomUser() {
     const res = await fetch('https://randomuser.me/api');
     const data = await res.json()
@@ -42,8 +45,10 @@ function addData(obj) {
 // update DOM
 // It will have a parameter called provideData 
 function updateDOM(providedData = data) {
-
-
+    // Clear Main DIV
+    main.innerHTML = '<h2><strong>Person </strong>Wealth</h2>';
+    
+    providedData.forEach()
 }
 
 
