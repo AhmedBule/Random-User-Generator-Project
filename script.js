@@ -111,3 +111,7 @@ sortBtn.addEventListener('click', sortByRichest)
 
 showMillionairesBtn.addEventListener('click', showMillionaires)
 
+calculateWealthBtn.addEventListener('click', calculateWealth)
+
+
+
