@@ -16,3 +16,7 @@ There are a few sample images that can be viewed below.
 ![Sample1](images/sample1.png)
 ![Sample2](images/sample2.png)
 ![Sample3](images/sample3.png)
+
+## Live Link of the project 
+
+https://random-user-generator2021.netlify.app/
