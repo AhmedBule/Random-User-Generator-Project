@@ -11,10 +11,12 @@ const caculateWealthBtn = document.getElementById('calculate-wealth');
 let data = [];
 
 //fetch random user and add money. 
-
+getRandomUser();
+getRandomUser();
 getRandomUser();
 
 
+//(1) First function 
 async function getRandomUser() {
     const res = await fetch('https://randomuser.me/api');
     const data = await res.json()
@@ -32,8 +34,19 @@ async function getRandomUser() {
     addData(newUser)
 }
 
-// Add new object to data array. 
+// (5) Fith function 
+// Double Money function 
+function doubleMoney() {
+    data.data.map((user) => {
+        return { ...user, money: user.money * 2 }
+    })
 
+    updateDOM();
+}
+
+
+// (2) Second function
+// Add new object to data array. 
 function addData(obj) {
     // The push method pushes something to the end of the array. 
     data.push(obj)
@@ -42,13 +55,40 @@ function addData(obj) {
     // If nothing is passed in, then we will just padd the data 
 }
 
+// (3) Third function
 // update DOM
 // It will have a parameter called provideData 
 function updateDOM(providedData = data) {
     // Clear Main DIV
     main.innerHTML = '<h2><strong>Person </strong>Wealth</h2>';
-    
-    providedData.forEach()
+
+    providedData.forEach(item => {
+        // It will create an HTML element
+        const element = document.createElement('div')
+        // The classList will give a list of classes
+        element.classList.add('person');
+        element.innerHTML = `<strong>${item.name}</strong> ${formatMoney(item.money)}`
+
+        // To insert inside the DOM, we need to take our main element and use the appendChild method. 
+
+        main.appendChild(element)
+
+    });
 }
 
+//Format number as money
 
+function formatMoney(number) {
+    //formart money is going to take in a number 
+    //https://stackoverflow.com/questions/149055/how-to-format-numbers-as-currency-strings
+    return '$' + number.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');  // 12,345.67
+
+}
+
+// Event listeners. This is for the addUser button. If we click the addUser, it should generate a new user. 
+
+// (4) Fourth Functionality
+addUserBtn.addEventListener('click', getRandomUser);
+
+
+doubleBtn.addEventListener('click', doubleMoney)
