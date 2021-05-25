@@ -3,7 +3,7 @@ const addUserBtn = document.getElementById('add-user');
 const doubleBtn = document.getElementById('double');
 const showMillionairesBtn = document.getElementById('show-millionaires');
 const sortBtn = document.getElementById('sort');
-const caculateWealthBtn = document.getElementById('calculate-wealth');
+const calculateWealthBtn = document.getElementById('calculate-wealth');
 
 // The data is where we are going to put all of the people. It is an  array of objects. 
 // It has a first and last name. Then, it has a money value
@@ -58,6 +58,18 @@ function showMillionaires() {
 
     updateDOM();
 }
+
+//Calculate the total wealth
+
+function calculateWealth() {
+    const wealth = data.reduce((acc, user) => (acc += user.money), 0);
+
+    const wealthEl = document.createElement('div');
+    wealthEl.innerHTML = `<h3>Total Wealth: <strong>${formatMoney(wealth)}</strong></h3>`
+    main.appendChild(wealthEl)
+}
+
+
 
 // (2) Second function
 // Add new object to data array. 
